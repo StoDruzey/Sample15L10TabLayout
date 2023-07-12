@@ -5,10 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.NavHostFragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.sample15l10tablayout.databinding.FragmentTabBinding
 import com.google.android.material.tabs.TabLayoutMediator
+import java.lang.IndexOutOfBoundsException
 
 class TabFragment : Fragment() {
     private var _binding: FragmentTabBinding? = null
@@ -44,10 +44,14 @@ class TabFragment : Fragment() {
 
 class FragmentTabAdapter(fragment: Fragment): FragmentStateAdapter(fragment) {
     override fun getItemCount(): Int {
-        return 2
+        return 3
     }
 
     override fun createFragment(position: Int): Fragment {
-        TODO("Not yet implemented")
+        return if (position in 0..2) {
+            XFragment()
+        } else {
+            throw IndexOutOfBoundsException("Wrong position $position")
+        }
     }
 }

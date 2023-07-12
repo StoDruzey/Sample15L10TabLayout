@@ -1,16 +1,17 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
     namespace 'com.example.sample15l10tablayout'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.example.sample15l10tablayout"
         minSdk 24
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -37,6 +38,7 @@ android {
 }
 
 dependencies {
+
     implementation 'androidx.core:core-ktx:+'
 
     //Jetpack Navigation
